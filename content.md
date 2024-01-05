@@ -28,6 +28,8 @@ pp person.role
 The initialize method takes three parameters and assigns them to the instance variables. Now, when we create a new Person, we provide these details upfront, making our code cleaner and more intuitive.
 
 ## Setters and Getters
+<!-- TODO: explain why a custom setter is useful (maybe use titleize in setter?) -->
+<!-- TODO: explain better how attr_accessor method auto-creates setter/getter -->
 
 In Ruby, setters and getters are methods that allow you to set and get the value of an object's attributes. We've already seen attr_accessor in action, which is a shorthand for both setter and getter methods. Let's break it down:
 
@@ -56,7 +58,6 @@ pp person.first_name # Using getter
 person.first_name = "Ian" # Using setter
 pp person.first_name
 ```
-
 {: .repl #person_setter_getter title="Person Setters and Getters" points="1"}
 
 ## Practice with Initializers and Setters/Getters
@@ -82,7 +83,6 @@ pp car.year
 car.model = "Corolla"
 pp car.model
 ```
-
 {: .repl #car_class title="Car Class" points="1"}
 
 ```ruby
@@ -101,7 +101,6 @@ describe "Car class" do
   end
 end
 ```
-
 {: .repl-test #car_class_test for="car_class" title="Car Class Tests" points="1"}
 
 ## Summary
