@@ -102,7 +102,7 @@ pp car.model
 pp car.year
 
 # Change and then print the model
-car.model = "Corolla"
+car.model = "corolla"
 pp car.model
 ```
 {: .repl #car_class title="Car Class" points="1"}
