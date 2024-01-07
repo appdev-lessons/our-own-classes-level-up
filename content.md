@@ -96,7 +96,7 @@ class Car
 end
 
 # Test your Car class
-car = Car.new("Toyota", "Camry", 2021)
+car = Car.new("toyota", "camry", 2021)
 pp car.make
 pp car.model
 pp car.year
