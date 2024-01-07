@@ -2,7 +2,7 @@
 
 ## Initializers
 
-When we create a new instance of a class, it's often necessary to initialize it with some data in order to be useful. This is where the `initialize` method comes in. This special method is called automatically when you create a new object. Let's see it in action.
+Initializing an object with data is a common practice in object-oriented programming. Ruby's initialize method is called automatically when a new object is created, allowing us to set initial values for the object's attributes.
 
 Consider our Person class:
 
@@ -22,43 +22,59 @@ pp person.first_name
 pp person.last_name
 pp person.role
 ```
-
 {: .repl #person_initializer title="Person Initializer" points="1"}
 
 The initialize method takes three parameters and assigns them to the instance variables. Now, when we create a new Person, we provide these details upfront, making our code cleaner and more intuitive.
 
-## Setters and Getters
-<!-- TODO: explain why a custom setter is useful (maybe use titleize in setter?) -->
-<!-- TODO: explain better how attr_accessor method auto-creates setter/getter -->
+## Setters and Getters: Auto-creation and Customization
+Ruby provides `attr_accessor` for automatically creating basic setters and getters. However, there are scenarios where you might want to customize these methods.
 
-In Ruby, setters and getters are methods that allow you to set and get the value of an object's attributes. We've already seen attr_accessor in action, which is a shorthand for both setter and getter methods. Let's break it down:
+### Auto-Creation with attr_accessor
+`attr_accessor` is a Ruby method that creates both setter and getter methods for the specified attributes. It's a convenient shorthand for defining these methods manually.
+
+For example:
 
 ```ruby
 class Person
-  def initialize(first_name, last_name)
-    @first_name = first_name
-    @last_name = last_name
-  end
-
-  # Getter for first_name
-  def first_name
-    @first_name
-  end
-
-  # Setter for first_name
-  def first_name=(value)
-    @first_name = value
-  end
-
-  # Similarly for last_name...
+  attr_accessor :first_name, :last_name
 end
 
-person = Person.new("Iannn", "Heraty")
-pp person.first_name # Using getter
-person.first_name = "Ian" # Using setter
+person = Person.new
+person.first_name = "Ian"
 pp person.first_name
 ```
-{: .repl #person_setter_getter title="Person Setters and Getters" points="1"}
+{: .repl #person_attr_accessor title="Person attr_accessor" points="1"}
+
+### Custom Setters and Getters
+Sometimes, you need more control over how attributes are set or retrieved. In these cases, you can define custom setter and getter methods.
+
+For instance, you might want to ensure that a person's name is always stored in title case:
+
+```ruby
+class Person
+  attr_accessor :last_name, :role
+
+  def initialize(first_name, last_name, role)
+    @first_name = first_name
+    @last_name = last_name
+    @role = role
+  end
+
+  def first_name
+    @first_name.capitalize
+  end
+
+  def first_name=(value)
+    @first_name = value.capitalize
+  end
+end
+
+person = Person.new("ian", "Heraty", "Instructor")
+pp person.first_name # "Ian"
+person.first_name = "ian"
+pp person.first_name # "Ian"
+```
+{: .repl #person_custom_setter_getter title="Person Custom Setters and Getters" points="1"}
 
 ## Practice with Initializers and Setters/Getters
 Let's put these concepts into practice. Define a Car class with the following requirements:
@@ -70,7 +86,18 @@ Here's a skeleton to help you start:
 
 ```ruby
 class Car
-  # Your code here
+  attr_accessor :make, :model, :year
+
+  def initialize(make, model, year)
+    @make = make
+    @model = model
+    @year = year
+  end
+
+  # Custom setter for model
+  def model=(value)
+    @model = value.upcase
+  end
 end
 
 # Test your Car class
@@ -90,24 +117,20 @@ describe "Car class" do
   it "initializes with make, model, and year" do
     car = Car.new("Toyota", "Camry", 2021)
     expect(car.make).to eq("Toyota")
-    expect(car.model).to eq("Camry")
+    expect(car.model).to eq("CAMRY")
     expect(car.year).to eq(2021)
   end
 
-  it "allows changing the model" do
+  it "allows changing the model and stores it in uppercase" do
     car = Car.new("Toyota", "Camry", 2021)
     car.model = "Corolla"
-    expect(car.model).to eq("Corolla")
+    expect(car.model).to eq("COROLLA")
   end
 end
 ```
 {: .repl-test #car_class_test for="car_class" title="Car Class Tests" points="1"}
 
 ## Summary
-Understanding initializers and setters/getters is fundamental in Ruby, especially as you start building more complex applications. These concepts help encapsulate and manage data within your objects effectively.
+Understanding initializers and how to customize setters/getters in Ruby is essential for creating flexible and robust object-oriented applications. These concepts allow for more control over how data is handled within your objects, leading to cleaner and more maintainable code.
 
-Now, it's your turn to implement these concepts in the Car class. Once you're done, you'll be well on your way to mastering the basics of Ruby's object-oriented programming!
-
-Remember: Test your code thoroughly and ensure it meets all the requirements!
-
-When you are done here, close the window and return to Canvas for the next lesson in the series. Happy coding! 🚀
+Happy coding, and see you in the next lesson! 🚀
