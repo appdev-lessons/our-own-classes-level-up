@@ -52,21 +52,21 @@ For instance, you might want to ensure that a person's name is always stored in 
 
 ```ruby
 class Person
-  attr_accessor :last_name, :role
+  attr_reader :first_name, :last_name, :role
 
   def initialize(first_name, last_name, role)
-    @first_name = first_name
-    @last_name = last_name
+    self.first_name = first_name
+    self.last_name = last_name
     @role = role
   end
 
-  def first_name
-    @first_name
-  end
-
   def first_name=(value)
+    raise TypeError, 'First name must be a string' unless value.is_a?(String)
+
     @first_name = value.capitalize
   end
+
+  # TODO: do the same for :last_name
 end
 
 person = Person.new("ian", "Heraty", "Instructor")
@@ -86,18 +86,13 @@ Here's a skeleton to help you start:
 
 ```ruby
 class Car
-  attr_accessor :make, :model, :year
+  attr_reader :make, :model, :year
 
   def initialize(make, model, year)
-    @make = make
-    @model = model
-    @year = year
+    # TODO: initialize attributes
   end
 
-  # Custom setter for model
-  def model=(value)
-    @model = value.upcase
-  end
+  # TODO: Custom setters for make, model, and year
 end
 
 # Test your Car class
@@ -115,16 +110,21 @@ pp car.model
 ```ruby
 describe "Car class" do
   it "initializes with make, model, and year" do
-    car = Car.new("Toyota", "Camry", 2021)
+    car = Car.new("toyota", "camry", 2021)
     expect(car.make).to eq("Toyota")
-    expect(car.model).to eq("CAMRY")
+    expect(car.model).to eq("Camry")
     expect(car.year).to eq(2021)
   end
 
   it "allows changing the model and stores it in uppercase" do
     car = Car.new("Toyota", "Camry", 2021)
-    car.model = "Corolla"
-    expect(car.model).to eq("COROLLA")
+    car.model = "corolla"
+    expect(car.model).to eq("Corolla")
+  end
+
+  it "only allows the year to be an integer" do
+    car = Car.new("Toyota", "Camry", 2021)
+    expect { car.year = "corolla" }.to raise_error(TypeError)
   end
 end
 ```
