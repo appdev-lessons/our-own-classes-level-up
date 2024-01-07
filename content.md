@@ -61,7 +61,7 @@ class Person
   end
 
   def first_name
-    @first_name.capitalize
+    @first_name
   end
 
   def first_name=(value)
