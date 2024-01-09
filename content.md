@@ -45,6 +45,8 @@ pp person.first_name
 ```
 {: .repl #person_attr_accessor title="Person attr_accessor" points="1"}
 
+There are times when it makes sense to auto-create just a setter OR just a getter for an attribute (not both). Ruby also has `attr_reader` for creating getter methods and `attr_writer` for creating setter methods.
+
 ### Custom Setters and Getters
 Sometimes, you need more control over how attributes are set or retrieved. In these cases, you can define custom setter and getter methods.
 
@@ -55,13 +57,18 @@ class Person
   attr_reader :first_name, :last_name, :role
 
   def initialize(first_name, last_name, role)
+    # we use 'self' here (instead of @) to refer to our custom setter method for first_name
+    # this way it will be capitalized during initialization
     self.first_name = first_name
     @last_name = last_name
     @role = role
   end
 
   def first_name=(value)
-    raise TypeError, 'First name must be a string' unless value.is_a?(String)
+    # to be prevent errors, we only allow first_name to be a String
+    unless value.is_a?(String)
+      raise TypeError, 'First name must be a string'
+    end
 
     @first_name = value.capitalize
   end
