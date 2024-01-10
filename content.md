@@ -108,9 +108,18 @@ pp car.make
 pp car.model
 pp car.year
 
+# Change and then print the make
+car.make = "ford"
+pp car.make
+
 # Change and then print the model
-car.model = "corolla"
+car.model = "explorer"
 pp car.model
+
+# Change and then print the year
+car.year = 2022
+pp car.year
+
 ```
 {: .repl #car_class title="Car Class" points="1"}
 
@@ -123,10 +132,22 @@ describe "Car class" do
     expect(car.year).to eq(2021)
   end
 
+  it "allows changing the make and stores it in uppercase" do
+    car = Car.new("Toyota", "Camry", 2021)
+    car.make = "toyota"
+    expect(car.make).to eq("Toyota")
+  end
+
   it "allows changing the model and stores it in uppercase" do
     car = Car.new("Toyota", "Camry", 2021)
     car.model = "corolla"
     expect(car.model).to eq("Corolla")
+  end
+
+  it "allows changing the year
+    car = Car.new("Toyota", "Camry", 2021)
+    car.year = 2022
+    expect(car.year).to eq(2022)
   end
 
   it "only allows the year to be an integer" do
