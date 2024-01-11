@@ -121,7 +121,7 @@ car.year = 2022
 pp car.year
 
 ```
-{: .repl #car_class title="Car Class" points="1"}
+{: .repl #car_class title="Car Class"}
 
 ```ruby
 describe "Car class" do
