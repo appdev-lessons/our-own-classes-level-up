@@ -164,6 +164,7 @@ describe "Car class" do
     car.year = 2022
     expect(car.year).to eq(2022)
   end
+end
 ```
 {: .repl-test #car_class_test_4 for="car_class" title="Car Class allows changing the year" points="1"}
 
