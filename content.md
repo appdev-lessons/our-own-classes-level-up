@@ -126,7 +126,7 @@ pp car.year
 ```ruby
 describe "Car class" do
   it "initializes with make, model, and year" do
-    car = Car.new("toyota", "camry", 2021)
+    car = Car.new("Toyota", "Camry", 2021)
     expect(car.make).to eq("Toyota")
     expect(car.model).to eq("Camry")
     expect(car.year).to eq(2021)
