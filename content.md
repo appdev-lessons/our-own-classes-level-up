@@ -144,7 +144,7 @@ describe "Car class" do
     expect(car.model).to eq("Corolla")
   end
 
-  it "allows changing the year
+  it "allows changing the year" do
     car = Car.new("Toyota", "Camry", 2021)
     car.year = 2022
     expect(car.year).to eq(2022)
