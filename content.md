@@ -131,32 +131,51 @@ describe "Car class" do
     expect(car.model).to eq("Camry")
     expect(car.year).to eq(2021)
   end
+end
+```
+{: .repl-test #car_class_test_1 for="car_class" title="Car Class initializes with make, model, and year" points="1"}
 
+```ruby
+describe "Car class" do
   it "allows changing the make and stores it in uppercase" do
     car = Car.new("Toyota", "Camry", 2021)
     car.make = "toyota"
     expect(car.make).to eq("Toyota")
   end
+end
+```
+{: .repl-test #car_class_test_2 for="car_class" title="Car Class allows changing the make and stores it in uppercase" points="1"}
 
+```ruby
+describe "Car class" do
   it "allows changing the model and stores it in uppercase" do
     car = Car.new("Toyota", "Camry", 2021)
     car.model = "corolla"
     expect(car.model).to eq("Corolla")
   end
+end
+```
+{: .repl-test #car_class_test_3 for="car_class" title="Car Class allows changing the model and stores it in uppercase" points="1"}
 
+```ruby
+describe "Car class" do
   it "allows changing the year" do
     car = Car.new("Toyota", "Camry", 2021)
     car.year = 2022
     expect(car.year).to eq(2022)
   end
+```
+{: .repl-test #car_class_test_4 for="car_class" title="Car Class allows changing the year" points="1"}
 
+```ruby
+describe "Car class" do
   it "only allows the year to be an integer" do
     car = Car.new("Toyota", "Camry", 2021)
     expect { car.year = "corolla" }.to raise_error(TypeError)
   end
 end
 ```
-{: .repl-test #car_class_test for="car_class" title="Car Class Tests" points="1"}
+{: .repl-test #car_class_test_5 for="car_class" title="Car Class only allows the year to be an integer" points="1"}
 
 ## Summary
 Understanding initializers and how to customize setters/getters in Ruby is essential for creating flexible and robust object-oriented applications. These concepts allow for more control over how data is handled within your objects, leading to cleaner and more maintainable code.
