@@ -121,7 +121,7 @@ car.year = 2022
 pp car.year
 
 ```
-{: .repl #car_class title="Car Class"}
+{: .repl #car_class_quiz title="Car Class"}
 
 ```ruby
 describe "Car class" do
@@ -133,7 +133,7 @@ describe "Car class" do
   end
 end
 ```
-{: .repl-test #car_class_test_1 for="car_class" title="Car Class initializes with make, model, and year" points="1"}
+{: .repl-test #car_class_quiz_test_1 for="car_class_quiz" title="Car Class initializes with make, model, and year" points="1"}
 
 ```ruby
 describe "Car class" do
@@ -144,7 +144,7 @@ describe "Car class" do
   end
 end
 ```
-{: .repl-test #car_class_test_2 for="car_class" title="Car Class allows changing the make and stores it in uppercase" points="1"}
+{: .repl-test #car_class_quiz_test_2 for="car_class_quiz" title="Car Class allows changing the make and stores it in uppercase" points="1"}
 
 ```ruby
 describe "Car class" do
@@ -155,7 +155,7 @@ describe "Car class" do
   end
 end
 ```
-{: .repl-test #car_class_test_3 for="car_class" title="Car Class allows changing the model and stores it in uppercase" points="1"}
+{: .repl-test #car_class_quiz_test_3 for="car_class_quiz" title="Car Class allows changing the model and stores it in uppercase" points="1"}
 
 ```ruby
 describe "Car class" do
@@ -166,7 +166,7 @@ describe "Car class" do
   end
 end
 ```
-{: .repl-test #car_class_test_4 for="car_class" title="Car Class allows changing the year" points="1"}
+{: .repl-test #car_class_quiz_test_4 for="car_class_quiz" title="Car Class allows changing the year" points="1"}
 
 ```ruby
 describe "Car class" do
@@ -176,7 +176,7 @@ describe "Car class" do
   end
 end
 ```
-{: .repl-test #car_class_test_5 for="car_class" title="Car Class only allows the year to be an integer" points="1"}
+{: .repl-test #car_class_quiz_test_5 for="car_class_quiz" title="Car Class only allows the year to be an integer" points="1"}
 
 ## Summary
 Understanding initializers and how to customize setters/getters in Ruby is essential for creating flexible and robust object-oriented applications. These concepts allow for more control over how data is handled within your objects, leading to cleaner and more maintainable code.
