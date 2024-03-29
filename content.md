@@ -65,7 +65,7 @@ class Person
   end
 
   def first_name=(value)
-    # to be prevent errors, we only allow first_name to be a String
+    # to prevent errors, we only allow first_name to be a String
     unless value.is_a?(String)
       raise TypeError, 'First name must be a string'
     end
