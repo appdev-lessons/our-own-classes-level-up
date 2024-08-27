@@ -182,3 +182,9 @@ end
 Understanding initializers and how to customize setters/getters in Ruby is essential for creating flexible and robust object-oriented applications. These concepts allow for more control over how data is handled within your objects, leading to cleaner and more maintainable code.
 
 Happy coding, and see you in the next lesson! 🚀
+
+---
+
+- Approximately how long (in minutes) did this lesson take you to complete?
+{: .free_text_number #time_taken title="Time taken" points="1" answer="any" }
+
